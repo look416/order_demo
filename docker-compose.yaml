@@ -1,0 +1,15 @@
+version: "3.5"
+networks:
+  api_server_default:
+    name: api_network
+services:
+  orderapp:
+    networks:
+      - api_server_default
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ENV_NAME: prod
+    ports:
+      - 9000:9000
